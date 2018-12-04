@@ -1,0 +1,138 @@
+{%extends "base.html"%}
+
+<!--外部资源-->
+{%block link_content%}
+
+{%endblock%}
+
+
+<!--js-->
+{%block script_content%}  
+
+{%endblock%} 
+
+
+{%block content_top%}
+ 
+{%endblock%}
+{%block content%}
+<style>
+/*框架预览 CSS*/
+* { margin: 0; padding: 0; }
+body { text-align: center; background-color: #0cc; }
+@media only screen and (max-width:900px){.mkeButton {display:block; margin:8px auto 0;}}
+@media only screen and (max-width:767px){}
+/*End*/
+</style> 
+
+<div id="main" style="width:900px; height:665px;  ">
+  <div class="title" style="position:absolute;left:50px;top:100px;width:824px;height:400px">
+<!--   <h3>stargate - 2017</h3>
+  <h1>见证<span>数据的力量</span></h1> -->
+</div>    
+</div>
+<script type="text/javascript">
+
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('title'));
+
+// 绘制图表
+var option = {
+    title:{
+        text:"词云图",
+    },
+    tooltip: {},
+    series: [{
+        type: 'wordCloud',
+        gridSize: 20,
+        sizeRange: [12, 50],
+        rotationRange: [0, 0],
+        shape: 'circle',
+        textStyle: {
+            normal: {
+                color: function() {
+                    return 'rgb(' + [
+                        Math.round(Math.random() * 160),
+                        Math.round(Math.random() * 160),
+                        Math.round(Math.random() * 160)
+                    ].join(',') + ')';
+                }
+            },
+            emphasis: {
+                shadowBlur: 10,
+                shadowColor: '#333'
+            }
+        },
+        data: [{
+            name: '数据可视化',
+            value: 10000,
+            textStyle: {
+                normal: {
+                    color: 'black'
+                },
+                emphasis: {
+                    color: 'red'
+                }
+            }
+        }, {
+            name: 'BigData',
+            value: 6181
+        }, {
+            name: '云计算',
+            value: 4386
+        }, {
+            name: 'Hadoop',
+            value: 4055
+        }, {
+            name: 'Spark',
+            value: 2467
+        }, {
+            name: 'Hive',
+            value: 2244
+        }, {
+            name: '大数据',
+            value: 1898
+        }, {
+            name: 'Splink',
+            value: 1484
+        }, {
+            name: 'Dai Yang',
+            value: 1112
+        },  {
+            name: 'Zhu Cheng Wei',
+            value: 847
+        }, {
+            name: 'Zhang Jun Rui',
+            value: 582
+        }, {
+            name: 'Zhang Xia Hui',
+            value: 555
+        }, {
+            name: '机器学习',
+            value: 550
+        }, {
+            name: '数据分析',
+            value: 462
+        }, {
+            name: '数据挖掘',
+            value: 366
+        }, {
+            name: '大数据分析',
+            value: 360
+        }, {
+            name: '人工智能',
+            value: 282
+        }, {
+            name: '2017',
+            value: 273
+        }, {
+            name: '数据',
+            value: 265
+        }]
+    }]
+};
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+</script>   
+{%endblock%}
+

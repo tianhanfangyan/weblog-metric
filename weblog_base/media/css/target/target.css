@@ -1,0 +1,27 @@
+/*base.html*/
+body{font-size:12px;font-family: arial , "microsoft yahei";}
+
+.title-wrapper .brand-logo{color:#fff;width:150px;height:50px;overflow:hidden;text-align:center;background-color: #fa8919;float:left;}
+.title-wrapper .brand-logo .icon-didi{margin-right:5px;font-size:20px;vertical-align: top;}
+
+.wrapper{width:100%;background-color:#f2f2f2;display: inline-block;border-left: 150px solid #3a3a3a;position: relative;vertical-align: bottom;}
+.wrapper:after{display:block;clear:both;content:'\0020';}
+.wrapper .sidebar,.wrapper .main{min-height: 200px;height: auto !important;height: 200px;}
+.wrapper .sidebar{float: left;width: 150px;margin-left: -150px;position: relative;}
+.wrapper .main{float:left;width:100%;background-color: #f2f2f2;margin-bottom: 10px;}
+
+.sidebar-list{padding:0 10px;}
+.sidebar-list .dropdown-new [data-toggle="dropdown-new"] ,.dropdown-new .dropdown-new-menu li a
+{background: transparent;-moz-box-shadow: none;-webkit-box-shadow: none;box-shadow: none;text-shadow: none;padding:0;height:30px; line-height: 30px;}
+.sidebar-list .dropdown-new{margin-bottom: 20px;}
+.sidebar-list .dropdown-new [data-toggle="dropdown-new"] {border-bottom: 1px solid rgba(255,255,255,0.1);cursor:pointer;}
+.sidebar-list .dropdown-new-menu{margin-left:10px;}
+.dropdown-new .dropdown-new-menu li a{color:#ccc;}
+.dropdown-new .dropdown-new-menu li a:hover{background-color: transparent;color:#fa8919;}
+.dropdown-new [data-toggle="dropdown-new"] .icon-arrow-down, 
+.dropdown-new [data-toggle="dropdown-new"] .icon-arrow-up{font-size: 14px;float:right;}
+
+.targetIndex{height:50px;line-height: 50px;margin:0px;padding-left: 20px;padding-right:15px;font-size: 16px;background-color: #ddd;border-bottom:1px solid #ddd;text-align:left;}
+.chart{border-radius: 0px;margin:30px 0 0px 30px;box-shadow: none;padding:0;width:46%;height:400px;border-color:#ddd;}
+.targetIndex .title{float:right;}
+.targetIndex .option{float:left; line-height: 30px;font-size: 14px;}

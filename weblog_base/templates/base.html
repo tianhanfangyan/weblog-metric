@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta name="charset" content="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="daiyang"> 
+<!--外部资源-->
+    {%block link_content%}
+
+    {%endblock%}
+    <link href="/media/css/target/bootstrap.css" rel="stylesheet" >
+    <link href="/media/css/target/global.css" rel="stylesheet">
+    <link href="/media/css/target/iconfont.css" rel="stylesheet">
+    <link href="/media/css/target/target.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="/media/js/echarts.min.js"></script>
+    <script type="text/javascript" src="/media/js/ready.js"></script>
+    <script type="text/javascript" src="/media/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/media/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/media/js/app.js"></script>
+    <!-- <link rel="shortcut icon" href="/img/didi.png" type="image/x-icon"> -->
+<!--js-->
+    {%block script_content%}  
+
+    {%endblock%} 
+<!--标题-->
+    <title>日志kpi可视化界面</title>
+   
+</head>
+
+<body>
+
+    <div class="title-wrapper">
+        <a href="/weblog_show/Home/">
+            <span class="brand-logo"><i class="icons icon-didi"></i>KPI可视化</span>
+        </a>
+    </div>
+<!--左边导航栏 -->
+    <div class="wrapper">
+      <div class="sidebar">
+        <div class="sidebar-list">
+        <ul class="topnav menu-left-nest">
+                            <li>u
+                            <a class="tooltip-tip ajax-load" href="/weblog_show/uv/" title="Blog App">
+                                 <div>
+                                  <span style="color:#FFFFFF">用户访问量UV</span>
+                                 </div>
+                              </a>
+                  
+                         </li>
+        </ul>
+        <ul class="topnav menu-left-nest">
+                            <li>u
+                            <a class="tooltip-tip ajax-load" href="/weblog_show/pv/" title="Blog App">
+                                <div>
+                                 <span style="color:#FFFFFF">页面访问量PV</span>
+                                </div>
+                              </a>
+                  
+                         </li>
+        </ul>
+
+        <ul class="topnav menu-left-nest">
+                            <li>u
+                            <a class="tooltip-tip ajax-load" href="/weblog_show/ip/" title="Blog App">
+                                <div>
+                                 <span style="color:#FFFFFF">独立IP数</span>
+                                </div>
+                              </a>
+                  
+                         </li>
+        </ul>
+        <ul class="topnav menu-left-nest">
+                            <li>u
+                            <a class="tooltip-tip ajax-load" href="/weblog_show/source/" title="Blog App">
+                                <div>
+                                 <span style="color:#FFFFFF">流量来源</span>
+                                </div>
+                              </a>
+                  
+                         </li>
+        </ul>
+        <ul class="topnav menu-left-nest">
+                            <li>u
+                            <a class="tooltip-tip ajax-load" href="/weblog_show/device/" title="Blog App">
+                                <div>
+                                 <span style="color:#FFFFFF">设备来源</span>
+                                </div>
+                              </a>
+                  
+                         </li>
+        </ul>
+        
+        </div>
+    </div>
+<!--右边中央div -->
+      <div class="main">
+        <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+
+            {%block content_top%}  
+    
+            {%endblock%} 
+
+            <div class="content-wrap">
+                <div class="row">
+
+                        <div class="nest" id="basicClose">
+                            {%block content%}  
+    
+                            {%endblock%} 
+                        </div>
+                </div>
+            </div>
+
+        </div>
+       </div>
+
+    </div>
+
+    </div>
+
+<!--页脚部分-->
+    <div class="footer-wrapper">
+        <span class="footer-word">&copy;KPI可视化</span>
+    </div>
+</body>
+
+</html>

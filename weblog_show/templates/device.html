@@ -1,0 +1,112 @@
+{%extends "base.html"%}
+
+<!--外部资源-->
+{%block link_content%}
+
+{%endblock%}
+
+
+<!--js-->
+{%block script_content%}  
+
+{%endblock%} 
+
+
+{%block content_top%}
+ 
+{%endblock%}
+{%block content%} 
+<style>
+/*框架预览 CSS*/
+* { margin: 0; padding: 0; }
+body { text-align: center; background-color: #0cc; }
+@media only screen and (max-width:900px){.mkeButton {display:block; margin:8px auto 0;}}
+@media only screen and (max-width:767px){}
+/*End*/
+</style> 
+
+<div id="main" style="width:900px; height:665px;  ">
+  <div id="echarts" style="position:absolute;left:50px; top:20px; width:80%; height:75%; ">
+            
+  </div>
+</div>
+<script type="text/javascript">
+
+var hf;
+var mydate;
+var XData=[];
+var YData=[];
+var echartArr=[];
+$(function(){
+    var url = window.location.href;
+  var str1 = url.split("/") ;
+  hf = "http://"+str1[2]+"/";
+})
+
+jQuery(function(){
+    $.ajax({
+        url: hf+"weblog_show/request_getDeviceData/",
+        type: 'GET',
+        dataType: 'json',
+        data:{},
+        async:false,
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.responseText);
+        },
+        success:function(data){
+        console.log(data);
+        for(var i=0;i<data.length;i++){
+          XData.push(data[i].device);
+          // YData.push(data[i].num);
+          echartArr.push({value:data[i].num,name:data[i].device});
+
+        }
+        }
+      })
+
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('echarts'));
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+
+}); 
+
+// 绘制图表
+var option={
+
+    title:{
+    text:'设备来源',
+    subtext:'一周访问时间',
+    x:'center'
+
+    },
+    tooltip:{
+        trigger:'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend:{
+        orient:'vertical',
+        left:'left',
+        data:XData
+
+    },
+    series:[
+        {
+            name:'设备来源',
+            type:'pie',
+            radius:'55%',
+            center:['50%','60%'],
+            data:echartArr,
+            itemStyle:{
+                emphasis:{
+                    shadowBlur:10,
+                    shadowOffsetX:0,
+                    shadowColor:'rgba(0,0,0)'
+                }
+            }
+        }
+    ]
+};
+</script>   
+{%endblock%}
+

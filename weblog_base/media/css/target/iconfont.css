@@ -1,0 +1,34 @@
+/*
+*http://www.iconfont.cn/plus/manage/index?manage_type=myprojects&projectId=183513
+*/
+@font-face {
+  font-family: 'matrix'; 
+  src: url('//at.alicdn.com/t/font_tk4ojk5h2uh4zpvi.woff') format('woff');
+}
+
+.icons{
+    font-family: 'matrix';
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+}
+
+.icon-didi:before       { content: "\e605"; }
+.icon-arrow-down:before { content: "\e668"; }
+.icon-arrow-up:before   { content: "\e631"; }
+
+.icon-retrieval:before  { content: "\e61a"; }
+.icon-traffic:before    { content: "\e6c1"; }
+.icon-rpv3:before       { content: "\e677"; }
+.icon-rp:before         { content: "\e678"; }
+
+.icon-eta:before        {content:"\e630";}
+.icon-location:before   { content: "\e61d"; }
+
+.icon-up:before         { content: "\e6ed"; }
+.icon-down:before       { content: "\e6ee"; }
+
+.icon-arrow-up.icon-arrow-down:before   { content: "\e668"; }

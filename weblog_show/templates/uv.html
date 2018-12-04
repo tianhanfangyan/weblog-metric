@@ -1,0 +1,133 @@
+{%extends "base.html"%}
+
+<!--外部资源-->
+{%block link_content%}
+
+
+{%endblock%}
+
+
+<!--js-->
+{%block script_content%} 
+
+
+
+{%endblock%} 
+
+
+{%block content_top%}
+ 
+{%endblock%}
+
+
+{%block content%} 
+<style>
+/*框架预览 CSS*/
+* { margin: 0; padding: 0; }
+body { text-align: center; background-color: #0cc; }
+@media only screen and (max-width:900px){.mkeButton {display:block; margin:8px auto 0;}}
+@media only screen and (max-width:767px){}
+/*End*/
+</style> 
+
+<div id="main" style="width:900px; height:665px;  ">
+  <div id="echarts" style="position:absolute;left:50px; top:100px; width:824px;height: 400px; ">
+            
+  </div>
+</div>  
+<script type="text/javascript">
+var hf;
+var mydate;
+var XData=[];
+var YData=[];
+$(function(){
+  var url = window.location.href;
+  var str1 = url.split("/") ;
+  hf = "http://"+str1[2]+"/";
+})
+
+jQuery(function(){
+    $.ajax({
+        url: hf+"weblog_show/request_getUVData/",
+        type: 'GET',
+        dataType: 'json',
+        data:{},
+        async:false,
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.responseText);
+        },
+        success:function(data){
+        console.log(data);
+        for(var i=0;i<data.length;i++){
+          XData.push(data[i].time);
+          YData.push(data[i].uv);
+
+        }
+        }
+      })
+
+
+
+              // 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('echarts'));
+
+              // 使用刚指定的配置项和数据显示图表。
+              myChart.setOption(option);
+    }); 
+
+// 绘制图表
+var option =
+   {
+    title: 
+    { text: 'UV数',
+      subtext:'一周访问时间',
+      
+
+    },
+    //设置提醒
+    tooltip: {
+        trigger: 'axis'
+    },
+    //设置图例
+    legend: {
+                data:['UV数']
+            },
+    xAxis: {
+        data: XData
+    },
+    //
+    toolbox: {
+        show: true,
+        feature: {
+            saveAsImage: {},
+            restore:{},
+            dataView:{show:true}
+        }
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} 个'
+            }
+    },
+    series: [{
+        name: 'UV数',
+        type: 'bar',
+        barWidth: '30%',
+        data: YData
+    },
+    {   name:'UV数',
+        type:'line',
+        data:YData
+
+    }
+    ]
+};
+
+</script>
+
+
+{%endblock%}
+
+
+

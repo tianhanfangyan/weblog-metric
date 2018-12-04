@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS dm_source;
+
+CREATE TABLE IF NOT EXISTS dm_source(
+    dt STRING COMMENT '日期',
+    source STRING COMMENT '网站流量来源',
+    num BIGINT COMMENT '来源数量'
+    )
+
+
+
+INSERT OVERWRITE TABLE dm_source 
+SELECT dt,referer, count(*) as num
+FROM dw_weblog_info
+WHERE length(referer) > 1
+  AND dt in ('20140101','20140102','20140103','20140104','20140105','20140106')
+GROUP BY referer,dt
